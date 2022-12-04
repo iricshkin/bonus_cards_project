@@ -76,7 +76,7 @@ class BonusCard(models.Model):
         return f'Бонусная карта {self.series} {self.number}'
 
     def get_absolute_url(self):
-        return reverse('profile', kwargs={'card_number': self.number})
+        return reverse('profile', kwargs={'card_number': self.pk})
 
 
 class Purchase(models.Model):

@@ -1,0 +1,25 @@
+{% extends 'cards/base.html' %}
+{% block content %}
+<div>
+    <h1>{{card}}</h1>
+    {% if card.status == 'active'%}
+        <a href="{% url 'deactivate' card.pk %}">деактивировать</a>
+    {% else %}
+        <a href="{% url 'activate' card.pk %}">активировать</a>
+    {% endif %}
+        <br><br>
+        <a href="{% url 'delete' card.pk %}">удалить</a>
+</div>
+<div style="font-size: 20px;">
+    <p><b>Покупки:</b></p>
+    {% for purchase in card.purchase.all %}
+        <p>
+            {{purchase}}
+        </p>
+    {% endfor %}
+    <br>
+    <p><b>Статус:</b> {{card.status}}</p>
+    <br>
+    <b>Остаток: </b> {{balance}}$
+</div>
+{% endblock %}

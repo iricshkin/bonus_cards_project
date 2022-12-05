@@ -20,6 +20,8 @@
     <br>
     <p><b>Статус:</b> {{card.status}}</p>
     <br>
-    <b>Остаток: </b> {{balance}}$
+    <p><b>Остаток:</b> {{card.balance}}</p>
+    <a href="{% url 'home' %}">
+        <button type="button" class="btn btn-primary btn-md">Назад</button></a>
 </div>
 {% endblock %}

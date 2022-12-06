@@ -1,3 +1,5 @@
+import random
+
 from .models import BonusCard
 
 
@@ -25,3 +27,20 @@ def _search_results(search: str) -> list:
             res.append(card)
 
     return res
+
+
+def _generate_card_numbers(n) -> list:
+    """Генерирует указанное количество номеров бонусных карты"""
+    MIN_NUMBER = 10000000
+    MAX_NUMBER = 99999999
+
+    generated_list = []
+    created = 0
+
+    while created < int(n):
+
+        number = random.randint(MIN_NUMBER, MAX_NUMBER)
+        generated_list.append(number)
+        created += 1
+
+    return generated_list

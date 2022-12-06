@@ -1,0 +1,27 @@
+{% extends 'cards/base.html' %} {% block content %}
+<a href="{% url 'home' %}">
+  <button type="button" class="btn btn-primary btn-md">Главная</button></a>
+<table style="text-align: center">
+  <tbody>
+    <thead>
+      <tr>
+        <th width="20%">Серия</th>
+        <th width="20%">Номер</th>
+        <th width="20%">Дата выпуска</th>
+        <th width="20%">Дата окончания активности</th>
+        <th width="20%">Статус</th>
+      </tr>
+    </thead>
+    {% for number in numbers %}
+    <tr>
+      <td>{{series}}</td>
+      <td>{{number}}</td>
+      <td>{{release_date}}</td>
+      <td>{{expiry_date}}</td>
+      <td>{{status}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

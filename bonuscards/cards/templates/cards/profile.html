@@ -1,5 +1,7 @@
 {% extends 'cards/base.html' %}
 {% block content %}
+<a href="{% url 'home' %}">
+    <button type="button" class="btn btn-primary btn-md">Главная</button></a>
 <div>
     <h1>{{card}}</h1>
     {% if card.status == 'active'%}
@@ -21,7 +23,6 @@
     <p><b>Статус:</b> {{card.status}}</p>
     <br>
     <p><b>Остаток:</b> {{card.balance}}</p>
-    <a href="{% url 'home' %}">
-        <button type="button" class="btn btn-primary btn-md">Назад</button></a>
+
 </div>
 {% endblock %}

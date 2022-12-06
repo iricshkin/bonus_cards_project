@@ -8,7 +8,13 @@
   {% endfor %}
   <button type="submit">Искать</button>
   <a href="{% url 'home' %}">
-    <button type="button" class="btn btn-primary btn-md">Назад</button></a>
+    <button type="button" class="btn btn-primary btn-md">Главная</button></a>
+  <a href="{% url 'add'%}">
+    <button type="button" class="btn btn-info btn-sm">Добавить карту</button></a>
+  <a href="{% url 'generate'%}">
+      <button type="button" class="btn btn-info btn-sm">
+        Генератор карт
+      </button></a>
 </form>
 </div>
 <table style="text-align: center">

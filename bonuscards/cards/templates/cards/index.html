@@ -7,19 +7,11 @@
     {{f}}
   {% endfor %}
   <button type="submit">Искать</button>
-  <a href="{% url 'home' %}">
-    <button type="button" class="btn btn-primary btn-md">Главная</button></a>
-  <a href="{% url 'add'%}">
-    <button type="button" class="btn btn-info btn-sm">Добавить карту</button></a>
-  <a href="{% url 'generate'%}">
-      <button type="button" class="btn btn-info btn-sm">
-        Генератор карт
-      </button></a>
 </form>
 </div>
 <table style="text-align: center">
   <tbody>
-    <h1>Список бонусных карт</h1>
+    <h1 class="display-4">Список бонусных карт</h1>
     <thead>
       <tr>
         <th width="20%">Серия</th>

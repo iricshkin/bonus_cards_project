@@ -1,7 +1,8 @@
 SERIES = [
     ('AAAA', 'AAAA'),
     ('BBBB', 'BBBB'),
-    ('ABCD', 'ABCD')
+    ('ABCD', 'ABCD'),
+    ('DDDD', 'DDDD'),
 ]
 
 DURATION = (

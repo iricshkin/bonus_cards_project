@@ -1,8 +1,7 @@
 {% extends 'cards/base.html' %}
-<a href="{% url 'home' %}">
-    <button type="button" class="btn btn-primary btn-md">Главная</button></a>
-<h1>Генератор карт</h1>
+
 {% block content %}
+<h1 class="display-4">Генератор карт</h1>
 <form action="{% url 'generate' %}" method="post">
     {% csrf_token %}
     {{form.as_p}}

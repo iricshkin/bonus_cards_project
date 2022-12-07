@@ -40,7 +40,8 @@ def _generate_card_numbers(n) -> list:
     while created < int(n):
 
         number = random.randint(MIN_NUMBER, MAX_NUMBER)
-        generated_list.append(number)
-        created += 1
+        if number not in generated_list:
+            generated_list.append(number)
+            created += 1
 
     return generated_list

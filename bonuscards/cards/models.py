@@ -6,15 +6,11 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
+from .choices import CARD_STATUS
+
 
 class BonusCard(models.Model):
     """Бонусная карта."""
-
-    CARD_STATUS = (
-        ('active', 'Активирована'),
-        ('inactivated', 'Не активирована'),
-        ('overdue', 'Просрочена')
-    )
 
     class Meta:
         verbose_name = 'Карта'

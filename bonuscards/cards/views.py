@@ -1,7 +1,6 @@
 from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
-from django.contrib.messages.views import SuccessMessageMixin
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -41,7 +40,7 @@ class CardDetailView(DetailView):
     template_name = 'cards/profile.html'
 
 
-class CardCreateView(SuccessMessageMixin, CreateView):
+class CardCreateView(CreateView):
     """Создание бонусной карты"""
     model = BonusCard
     form_class = CardForm
@@ -85,15 +84,25 @@ def generate(request):
             series = form.cleaned_data['series']
             quantity = int(form.cleaned_data['quantity'])
             duration = int(form.cleaned_data['duration'])
-
-            generated_cards_number = _generate_card_numbers(quantity)
-
             release_date = datetime.now()
             expiry_date = release_date + relativedelta(months=duration)
+            generated_cards_numbers = _generate_card_numbers(quantity)
+
+            instances = [
+                BonusCard(
+                    series=series,
+                    number=gen_card_number,
+                    expiry_date=expiry_date,
+                    balance=0,
+                    status='Не активирована',
+                )
+                for gen_card_number in generated_cards_numbers
+            ]
+            BonusCard.objects.bulk_create(instances)
 
             context = {
                 'series': series,
-                'numbers': generated_cards_number,
+                'numbers': generated_cards_numbers,
                 'release_date': release_date,
                 'expiry_date': expiry_date,
                 'status': 'Не активирована'

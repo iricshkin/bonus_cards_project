@@ -1,17 +1,16 @@
 {% extends 'cards/base.html' %}
 {% block content %}
-<a href="{% url 'home' %}">
-    <button type="button" class="btn btn-primary btn-md">Главная</button></a>
+
 <div>
-    <h1>{{card}}</h1>
+    <h1 class="display-4">{{card}}</h1>
     {% if card.status == 'active'%}
-        <a href="{% url 'deactivate' card.pk %}">деактивировать</a>
+       <p> <a href="{% url 'deactivate' card.pk %}">деактивировать</a></p>
     {% else %}
-        <a href="{% url 'activate' card.pk %}">активировать</a>
+        <p><a href="{% url 'activate' card.pk %}">активировать</a></p>
     {% endif %}
-        <br><br>
-        <a href="{% url 'delete' card.pk %}">удалить</a>
+        <p><a href="{% url 'delete' card.pk %}">удалить</a></p>
 </div>
+<p></p>
 <div style="font-size: 20px;">
     <p><b>Покупки:</b></p>
     {% for purchase in card.purchase.all %}
@@ -19,9 +18,7 @@
             {{purchase}}
         </p>
     {% endfor %}
-    <br>
     <p><b>Статус:</b> {{card.status}}</p>
-    <br>
     <p><b>Остаток:</b> {{card.balance}}</p>
 
 </div>
